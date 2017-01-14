@@ -55,9 +55,11 @@ nav.navbar-default {
 }
 
 footer {
-  background: #000;
   color: white;
-  text-align: center;
+  text-align: right;
   padding: 10px;
+  width: 100%;
   font-family: Georgia, Times, serif;
+  position: fixed;
+  bottom: 0;
 }
