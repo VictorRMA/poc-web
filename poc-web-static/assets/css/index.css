@@ -1,0 +1,39 @@
+html,
+body,
+.cover {
+  height: 100%;
+}
+
+.cover {
+  background: url('http://placekitten.com/1440/960') top left no-repeat;
+  background-size: cover;
+  display: table;
+  width: 100%;
+  padding: 0 20%;
+}
+
+.cover-text {
+  text-align: center;
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cover-text h1 {
+  margin: 0;
+  font-size: 70px;
+  letter-spacing: -3px;
+}
+
+nav.navbar-default {
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+
+footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-family: Georgia, Times, serif;
+}
