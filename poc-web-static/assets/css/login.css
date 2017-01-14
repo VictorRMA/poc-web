@@ -1,0 +1,63 @@
+html,
+body,
+.cover {
+  height: 100%;
+}
+
+.cover {
+  background: url('http://placekitten.com/1440/960') top left no-repeat;
+  background-size: cover;
+  display: table;
+  width: 100%;
+  padding: 0 20%;
+}
+
+nav.navbar-default {
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+
+.form-signin {
+  background-color: white;
+  max-width: 330px;
+  padding: 15px;
+  margin: 25% auto;
+  border-radius: 10px;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-family: Georgia, Times, serif;
+}
