@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PocWeb - Controle de horário</title>
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/schedule.css">
+
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-fixed-top navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="welcome.html">PocWeb</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="sr-only">Toogle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Perfil</a></li>
+              <li><a href="#">Ajuda</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">Visão geral <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="schedule.html">Controle de Horários</a></li>
+            <li><a href="#">Diario</a></li>
+            <li><a href="#">Obras</a></li>
+            <li><a href="#">Solicitações</a></li>
+            <li><a href="#">Painel Administrativo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">Controle de horário</h1>
+      <form class="form-schedule">
+        <h2 class="form-schedule-heading">Por favor, insira os dados para adicionar ao sistema</h2>
+        <label for="inputObra">Obra</label>
+        <input list="obras" id="inputObra">
+        <datalist id="obras">
+          <option value="121 - Exemplo de obra 1"></option>
+          <option value="122 - Exemplo de obra 2"></option>
+          <option value="123 - Exemplo de obra 3"></option>
+        </datalist>
+        <input list="atividades" id="inputAtividade">
+        <datalist id="atividades">
+          <option value="21 - Exemplo de atividade 1"></option>
+          <option value="22 - Exemplo de atividade 2"></option>
+          <option value="23 - Exemplo de atividade 3"></option>
+        </datalist>
+        <input id="datepicker">
+      </form>
+    </div>
+    <footer>
+      Feito por Victor Amorim
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#datepicker").datepicker();
+      });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
