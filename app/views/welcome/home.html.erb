@@ -1,3 +1,56 @@
-<h1>This is homepage</h1>
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%= link_to 'About', welcome_about_path %>
+    <title>PocWeb - Welcome</title>
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/welcome.css">
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-fixed-top navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="welcome.html">PocWeb</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="sr-only">Toogle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to 'About', about_path %></li>
+              <li><a href="#">Contato</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="cover">
+      <div class="cover-text">
+        <h1>PocWeb</h1>
+        <p class="lead">Commodo quis cillum ipsum excepteur deserunt ut cupidatat qui incididunt excepteur adipisicing ut et ipsum quis magna.</p>
+        <a href="login.html" role="button" class="btn btn-danger btn-lg">Pagina de Login</a>
+      </div>
+    </main>
+
+    <footer>
+      Feito por Victor Amorim
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
