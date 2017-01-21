@@ -1,0 +1,11 @@
+<h1>Create a Departamento</h1>
+
+<%= form_for @departamento do |f| %>
+  <p>
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
