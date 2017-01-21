@@ -1,5 +1,14 @@
 <h1>Create a Departamento</h1>
 
+<% if @departamento.errors.any? %>
+  <h2>Os erros a seguir impediram que o departamento seja criado:</h2>
+  <ul>
+  <% @departamento.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @departamento do |f| %>
   <p>
     <%= f.label :nome %><br>

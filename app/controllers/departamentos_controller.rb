@@ -4,10 +4,17 @@ class DepartamentosController < ApplicationController
   end
 
   def create
-    #render plain: params[:departamento].inspect
     @departamento = Departamento.new(departamento_params)
-    @departamento.save
-    redirect_to departamentos_show(@departamento)
+    if @departamento.save
+      flash[:notice] = "Departamento foi criado!"
+      redirect_to departamento_path(@departamento)
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @departamento = Departamento.find(params[:id])
   end
 
   private
