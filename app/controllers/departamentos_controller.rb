@@ -13,7 +13,21 @@ class DepartamentosController < ApplicationController
     end
   end
 
+  def update
+    @departamento = Departamento.find(params[:id])
+    if @departamento.update(departamento_params)
+      flash[:notice] = "Departamento foi atualizado com sucesso!"
+      redirect_to departamento_path(@departamento)
+    else
+      render 'edit'
+    end
+  end
+
   def show
+    @departamento = Departamento.find(params[:id])
+  end
+
+  def edit
     @departamento = Departamento.find(params[:id])
   end
 
