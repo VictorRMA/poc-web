@@ -7,6 +7,10 @@ class DepartamentosController < ApplicationController
     @departamento = Departamento.new
   end
 
+  def edit
+    @departamento = Departamento.find(params[:id])
+  end
+
   def create
     @departamento = Departamento.new(departamento_params)
     if @departamento.save
@@ -31,9 +35,13 @@ class DepartamentosController < ApplicationController
     @departamento = Departamento.find(params[:id])
   end
 
-  def edit
+  def destroy
     @departamento = Departamento.find(params[:id])
+    @departamento.destroy
+    flash[:notice] = "Departamentos was successfully deleted!"
+    redirect_to departamentos_path
   end
+
 
   private
     def departamento_params
