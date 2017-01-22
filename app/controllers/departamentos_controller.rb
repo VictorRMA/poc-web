@@ -1,4 +1,6 @@
 class DepartamentosController < ApplicationController
+  before_action :set_departamento, only: [:edit, :update, :show, :destroy]
+
   def index
     @departamentos = Departamento.all
   end
@@ -8,7 +10,6 @@ class DepartamentosController < ApplicationController
   end
 
   def edit
-    @departamento = Departamento.find(params[:id])
   end
 
   def create
@@ -22,7 +23,6 @@ class DepartamentosController < ApplicationController
   end
 
   def update
-    @departamento = Departamento.find(params[:id])
     if @departamento.update(departamento_params)
       flash[:notice] = "Departamento foi atualizado com sucesso!"
       redirect_to departamento_path(@departamento)
@@ -32,11 +32,9 @@ class DepartamentosController < ApplicationController
   end
 
   def show
-    @departamento = Departamento.find(params[:id])
   end
 
   def destroy
-    @departamento = Departamento.find(params[:id])
     @departamento.destroy
     flash[:notice] = "Departamentos was successfully deleted!"
     redirect_to departamentos_path
@@ -44,6 +42,10 @@ class DepartamentosController < ApplicationController
 
 
   private
+    def set_departamento
+      @departamento = Departamento.find(params[:id])
+    end
+
     def departamento_params
       params.require(:departamento).permit(:nome)
     end
