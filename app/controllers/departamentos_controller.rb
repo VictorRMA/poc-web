@@ -1,4 +1,8 @@
 class DepartamentosController < ApplicationController
+  def index
+    @departamentos = Departamento.all
+  end
+
   def new
     @departamento = Departamento.new
   end

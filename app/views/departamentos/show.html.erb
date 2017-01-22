@@ -1,3 +1,5 @@
 <h1>Mostrando o departamento selecionado</h1>
 
 <p>Nome: <%= @departamento.nome %></p>
+<%= link_to 'Back to departamentos listing', departamentos_path %> |
+<%= link_to 'Edit', edit_departamento_path(@departamento) %>

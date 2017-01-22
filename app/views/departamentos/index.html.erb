@@ -1,0 +1,17 @@
+<h1>Listing all departamentos</h1>
+<p>
+  <%= link_to 'Create a new Departamento', new_departamento_path %>
+</p>
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+  <% @departamentos.each do |departamento| %>
+  <tr>
+    <td><%= departamento.nome %></td>
+    <td><%= link_to 'Edit', edit_departamento_path(departamento) %></td>
+    <td><%= link_to 'Show', departamento_path(departamento) %></td>
+  </tr>
+  <% end %>
+</table>
