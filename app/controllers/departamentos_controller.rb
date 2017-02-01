@@ -15,7 +15,7 @@ class DepartamentosController < ApplicationController
   def create
     @departamento = Departamento.new(departamento_params)
     if @departamento.save
-      flash[:notice] = "Departamento foi criado!"
+      flash[:success] = "Departamento foi criado!"
       redirect_to departamento_path(@departamento)
     else
       render 'new'
@@ -24,7 +24,7 @@ class DepartamentosController < ApplicationController
 
   def update
     if @departamento.update(departamento_params)
-      flash[:notice] = "Departamento foi atualizado com sucesso!"
+      flash[:success] = "Departamento foi atualizado com sucesso!"
       redirect_to departamento_path(@departamento)
     else
       render 'edit'
@@ -36,7 +36,7 @@ class DepartamentosController < ApplicationController
 
   def destroy
     @departamento.destroy
-    flash[:notice] = "Departamentos was successfully deleted!"
+    flash[:danger] = "Departamentos was successfully deleted!"
     redirect_to departamentos_path
   end
 
