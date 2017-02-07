@@ -1,5 +1,7 @@
-<h1>Mostrando o departamento selecionado</h1>
+<h2 class="text-center">Nome: <%= @departamento.nome %></h2>
 
-<p>Nome: <%= @departamento.nome %></p>
-<%= link_to 'Back to departamentos listing', departamentos_path %> |
-<%= link_to 'Edit', edit_departamento_path(@departamento) %>
+<%= link_to 'Editar', edit_departamento_path(@departamento), class: "btn btn-xs btn-primary" %>
+<%= link_to 'Deletar', departamentos_path(@departamento), method: :delete,
+data: {confirm: "Você tem certeza?"},
+class: "btn btn-xs btn-danger" %>
+<%= link_to 'Ver todos os departamentos', departamentos_path, class: "btn btn-xs btn-success" %>

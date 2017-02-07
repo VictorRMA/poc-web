@@ -1,14 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  padding-top: 50px; 
-}
+
 
 html,
 body,
 .cover {
   height: 100%;
+}
+
+body {
+  padding-top: 50px;
 }
 
 nav.navbar-default {
