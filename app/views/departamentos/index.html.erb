@@ -1,18 +1,20 @@
-<h1>Listing all departamentos</h1>
+<h1 class="text-center">Listando todos os departamentos</h1>
 <p>
   <%= link_to 'Create a new Departamento', new_departamento_path %>
 </p>
-<table>
-  <tr>
-    <th>Nome</th>
-  </tr>
 
-  <% @departamentos.each do |departamento| %>
-  <tr>
-    <td><%= departamento.nome %></td>
-    <td><%= link_to 'Edit', edit_departamento_path(departamento) %></td>
-    <td><%= link_to 'Show', departamento_path(departamento) %></td>
-    <td><%= link_to 'Delete', departamento_path(departamento), method: :delete, data: {confirm: "Are you sure?"} %></td>
-  </tr>
-  <% end %>
-</table>
+<% @departamentos.each do |departamento| %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="departamento-title">
+          <%= link_to departamento.nome, departamento_path(departamento) %>
+        </div>
+        <%= link_to 'Editar', edit_departamento_path(departamento), class: "btn btn-xs btn-primary" %>
+        <%= link_to 'Deletar', departamentos_path(departamento), method: :delete,
+                                                                  data: {confirm: "Você tem certeza?"},
+                                                                  class: "btn btn-xs btn-danger" %>
+      </div>
+    </div>
+  </div>
+<% end %>
