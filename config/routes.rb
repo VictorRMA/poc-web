@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :departments
 
+  get 'signup', to: 'employees#new'
+  resources :employees, except: [:new]
 
 end
