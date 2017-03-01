@@ -1,7 +1,12 @@
 <h2 class="text-center">Nome: <%= @department.name %></h2>
 
+<h3>Funcionários: </h3>
+<% @department.employees.each do |employee| %>
+  <p> <%= link_to employee.full_name, employee_path(employee) %></p>
+<% end %>
+
 <%= link_to 'Editar', edit_department_path(@department), class: "btn btn-xs btn-primary" %>
 <%= link_to 'Deletar', department_path(@department), method: :delete,
-data: {confirm: "Você tem certeza?"},
-class: "btn btn-xs btn-danger" %>
-<%= link_to 'Ver todos os departments', departments_path, class: "btn btn-xs btn-success" %>
+                                                      data: {confirm: "Você tem certeza?"},
+                                                      class: "btn btn-xs btn-danger" %>
+<%= link_to 'Ver todos os departmentos', departments_path, class: "btn btn-xs btn-success" %>
