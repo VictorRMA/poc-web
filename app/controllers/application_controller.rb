@@ -1,17 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_employee, :logged_in?
 
-  def current_user
-    @current_user ||= Employee.find(session[:user_id]) if session[:user_id]
+  def current_employee
+    @current_employee ||= Employee.find(session[:employee_id]) if session[:employee_id]
   end
 
   def logged_in?
-    !!current_user
+    !!current_employee
   end
 
-  def require_user
+  def require_employee
     if !logged_in?
       flash[:danger] = "You need to log in to perform this action"
       redirect_to root_path

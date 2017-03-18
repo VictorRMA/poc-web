@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: [:edit, :update, :show, :destroy]
-  before_action :require_user, except: [:index, :show]
+  before_action :require_employee, except: [:index, :show]
 
   def index
     @departments = Department.all

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     employee = Employee.find_by(email: params[:session][:email].downcase)
 
     if employee && employee.authenticate(params[:session][:password])
-      session[:user_id] = employee.id
+      session[:employee_id] = employee.id
       flash[:success] = "Logged with success!"
       redirect_to employee_path(employee)
     else
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:employee_id] = nil
     flash[:success] = "Logged out!"
     redirect_to root_path
   end

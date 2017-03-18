@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
-  before_action :require_user, except: [:index, :show]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :set_employee, only: [:edit, :update, :show]
+  before_action :require_employee, except: [:index, :show]
+  before_action :require_same_employee, only: [:edit, :update]
 
   def index
     @employees = Employee.all
@@ -15,7 +15,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
     @employee.department = Department.last          #TODO: Remove this
     if @employee.save
-      session[:user_id] = @employee.id
+      session[:employee_id] = @employee.id
       flash[:success] = "Bem vindo #{@employee.first_name}"
       redirect_to departments_path
     else
@@ -42,11 +42,11 @@ class EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:first_name, :last_name, :email, :password)
     end
-    def set_user
+    def set_employee
       @employee = Employee.find(params[:id])
     end
-    def require_same_user
-      if current_user != @employee
+    def require_same_employee
+      if current_employee != @employee
         flash[:danger] = "You can only edit your own account"
         redirect_to root_path
       end
