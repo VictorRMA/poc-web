@@ -15,6 +15,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
     @employee.department = Department.last          #TODO: Remove this
     if @employee.save
+      session[:user_id] = @employee.id
       flash[:success] = "Bem vindo #{@employee.first_name}"
       redirect_to departments_path
     else

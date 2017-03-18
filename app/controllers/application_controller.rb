@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def require_logged_out
+    if logged_in?
+      redirect_to root_path
+    end
+  end
 end
