@@ -46,7 +46,7 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
     end
     def require_same_employee
-      if current_employee != @employee
+      if current_employee != @employee and !current_employee.admin?
         flash[:danger] = "You can only edit your own account"
         redirect_to root_path
       end

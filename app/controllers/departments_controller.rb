@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: [:edit, :update, :show, :destroy]
-  before_action :require_employee, except: [:index, :show]
+  before_action :require_admin, except: [:index, :show]
 
   def index
     @departments = Department.all
@@ -8,9 +8,6 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
-  end
-
-  def edit
   end
 
   def create
@@ -21,6 +18,9 @@ class DepartmentsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
   end
 
   def update
@@ -49,6 +49,13 @@ class DepartmentsController < ApplicationController
 
     def department_params
       params.require(:department).permit(:name)
+    end
+
+    def require_admin
+      if !logged_as_admin?
+        flash[:danger] = "Only administrators can perform this action!"
+        redirect_to root_path
+      end
     end
 
 end

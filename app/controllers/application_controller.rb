@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_employee, :logged_in?
+  helper_method :current_employee, :logged_in?, :logged_as_admin?
 
   def current_employee
     @current_employee ||= Employee.find(session[:employee_id]) if session[:employee_id]
@@ -22,5 +22,9 @@ class ApplicationController < ActionController::Base
     if logged_in?
       redirect_to root_path
     end
+  end
+
+  def logged_as_admin?
+    logged_in? and current_employee.admin?
   end
 end

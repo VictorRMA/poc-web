@@ -5,8 +5,12 @@
   <p> <%= link_to employee.full_name, employee_path(employee) %></p>
 <% end %>
 
-<%= link_to 'Editar', edit_department_path(@department), class: "btn btn-xs btn-primary" %>
-<%= link_to 'Deletar', department_path(@department), method: :delete,
-                                                      data: {confirm: "Você tem certeza?"},
-                                                      class: "btn btn-xs btn-danger" %>
-<%= link_to 'Ver todos os departmentos', departments_path, class: "btn btn-xs btn-success" %>
+<div class="department_actions">
+  <% if logged_as_admin? %>
+    <%= link_to 'Editar', edit_department_path(@department), class: "btn btn-xs btn-primary" %>
+    <%= link_to 'Deletar', department_path(@department), method: :delete,
+                                                          data: {confirm: "Você tem certeza?"},
+                                                          class: "btn btn-xs btn-danger" %>
+    <%= link_to 'Ver todos os departmentos', departments_path, class: "btn btn-xs btn-success" %>
+  <% end %>
+</div>
