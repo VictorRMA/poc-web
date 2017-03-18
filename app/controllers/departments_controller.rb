@@ -1,5 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
 
   def index
     @departments = Department.all
@@ -49,4 +50,5 @@ class DepartmentsController < ApplicationController
     def department_params
       params.require(:department).permit(:name)
     end
+
 end
