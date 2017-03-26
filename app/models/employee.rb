@@ -17,4 +17,9 @@ class Employee < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def self.authenticate(email, password)
+    employee = Employee.find_by(email: email).
+                         try(:authenticate, password)
+  end
 end

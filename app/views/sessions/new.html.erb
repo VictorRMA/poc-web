@@ -2,7 +2,7 @@
   <div class="text-center cover-text">
     <h1>PocWeb</h1>
     <p class="lead">Commodo quis cillum ipsum excepteur deserunt ut cupidatat qui incididunt excepteur adipisicing ut et ipsum quis magna.</p>
-    <%= form_for(:session, :html => {class: "form-signin", role: "form"}, url: login_path) do |f| %>
+    <%= form_for(@session, :html => {class: "form-signin", role: "form"}, url: login_path) do |f| %>
       <%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true %>
       <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "off" %>
       <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block" %>

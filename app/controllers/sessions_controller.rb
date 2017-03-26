@@ -2,18 +2,17 @@ class SessionsController < ApplicationController
   before_action :require_logged_out, only: [:new, :create]
 
   def new
-
+    @session = Session.new(session)
   end
 
   def create
-    employee = Employee.find_by(email: params[:session][:email].downcase)
+    @session = Session.new(session, params[:session])
 
-    if employee && employee.authenticate(params[:session][:password])
-      session[:employee_id] = employee.id
+    if @session.authenticate!
       flash[:success] = "Logged with success!"
-      redirect_to employee_path(employee)
+      redirect_to departments_path
     else
-      flash.now[:danger] = "Something wrong with parameters!"
+      flash.now[:danger] = "Wrong"
       render 'new'
     end
   end
