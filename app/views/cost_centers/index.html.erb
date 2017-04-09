@@ -1,0 +1,14 @@
+<h1 class="text-center">Todos os centros de custo</h1>
+
+<% @cost_centers.each do |cost_center| %>
+  <ul class="listing">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        <li>
+          <%= cost_center.number%>
+          <%= link_to cost_center.name, cost_center_path(cost_center) %>
+        </li>
+      </div>
+    </div>
+  </ul>
+<% end %>
