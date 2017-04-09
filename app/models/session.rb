@@ -23,4 +23,16 @@ class Session
   def store(employee)
     @session[:employee_id] = employee.id
   end
+
+  def destroy
+    @session[:employee_id] = nil
+  end
+
+  def current_employee
+    @current_employee ||= Employee.find(@session[:employee_id]) if @session[:employee_id]
+  end
+
+  def logged_in?
+    !!current_employee
+  end
 end

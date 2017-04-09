@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:edit, :update, :show]
-  before_action :require_employee, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_authentication, only: [:new, :create, :edit, :update, :destroy]
   before_action :require_same_employee, only: [:edit, :update]
 
   def index

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :require_logged_out, only: [:new, :create]
+  before_action :require_no_authentication, only: [:new, :create]
 
   def new
     @session = Session.new(session)
@@ -12,13 +12,13 @@ class SessionsController < ApplicationController
       flash[:success] = "Logged with success!"
       redirect_to departments_path
     else
-      flash.now[:danger] = "Wrong"
+      flash.now[:danger] = "Wrong parameters!"
       render 'new'
     end
   end
 
   def destroy
-    session[:employee_id] = nil
+    employee_session.destroy
     flash[:success] = "Logged out!"
     redirect_to root_path
   end
