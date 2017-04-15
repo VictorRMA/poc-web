@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_authentication
-    if !logged_in?
+    unless logged_in?
       flash[:danger] = "You need to log in to perform this action"
       redirect_to root_path
     end
