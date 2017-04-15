@@ -1,4 +1,5 @@
 class CostCentersController < ApplicationController
+  before_action :require_admin, only: [:new, :create, :edit]
 
   def index
     @cost_centers = CostCenter.all
@@ -28,5 +29,12 @@ class CostCentersController < ApplicationController
   private
     def cost_center_params
       params.require(:cost_center).permit(:number, :name)
+    end
+
+    def require_admin
+      unless logged_as_admin?
+        flash[:danger] = "Only admins can perform this action!"
+        redirect_to cost_centers_path
+      end
     end
 end
