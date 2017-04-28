@@ -16,7 +16,7 @@ class CostCenterTest < ActiveSupport::TestCase
   end
 
   test "name should not be too long" do
-    @cost_center.name = "a" * 33;
+    @cost_center.name = "a" * 33
     assert_not @cost_center.valid?
   end
 
