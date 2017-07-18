@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :cost_centers
+
+  resources :tasks
 end
