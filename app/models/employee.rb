@@ -1,5 +1,8 @@
 class Employee < ActiveRecord::Base
   belongs_to :department
+  has_many :work_times
+  has_many :tasks, through: :work_times
+
   before_save { self.email = email.downcase }
 
   validates :first_name, :last_name,
