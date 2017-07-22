@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :cost_centers
 
   resources :tasks
+
+  resources :work_times
 end

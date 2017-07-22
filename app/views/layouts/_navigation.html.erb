@@ -16,6 +16,7 @@
           <li><%= link_to 'Admin' if current_employee.admin? %></li>
           <li><%= link_to 'Tasks', tasks_path if current_employee.admin? %></li>
           <li><%= link_to 'Cost Centers', cost_centers_path %></li>
+          <li><%= link_to 'Work Times', work_times_path %></li>
           <li><%= link_to 'Departamentos', departments_path %></li>
           <li><%= link_to 'Logout', logout_path, method: :delete %></li>
           <li><%= link_to 'Edit your profile', edit_employee_path(current_employee) %></li>

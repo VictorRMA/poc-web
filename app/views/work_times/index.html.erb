@@ -1,0 +1,22 @@
+<h1 class="text-center">Todas as horas trabalhadas</h1>
+<p>
+  <%= link_to 'Create a new work time', new_work_time_path %>
+</p>
+
+<% @work_times.each do |work_time| %>
+  <ul class="listing">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        <li>
+          <%= link_to work_time.description, work_time_path(work_time) %>
+        </li>
+      </div>
+      <div class="">
+        <%= link_to 'Editar', edit_work_time_path(work_time), class: "btn btn-xs btn-primary" %>
+        <%= link_to 'Deletar', work_time_path(work_time), method: :delete,
+                                                            data: {confirm: "Você tem certeza?"},
+                                                            class: "btn btn-xs btn-danger" %>
+      </div>
+    </div>
+  </ul>
+<% end %>
