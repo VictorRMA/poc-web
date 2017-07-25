@@ -1,0 +1,10 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">Ultimas atualizações</h1>
+  <% @work_times.each do |work_time| %>
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <h3 class="Obra"><%=work_time.task.cost_center.name %></h3>
+      <h4><%=work_time.task.name%></h4>
+      <span class="text-muted"><%=work_time.created_at%></span>
+    </div>
+  <% end %>
+</div>

@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
   def logged_as_admin?
     logged_in? and current_employee.admin?
   end
+
+  def redirect_if_not_logged
+    redirect_to login_path unless logged_in?
+  end
 end

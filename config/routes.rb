@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get 'about', to: 'welcome#about'
 
+  get 'dashboard', to: 'dashboard#index'
+
   resources :departments
 
   get 'signup', to: 'employees#new'

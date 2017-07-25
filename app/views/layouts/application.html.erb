@@ -11,6 +11,7 @@
   <body>
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
+    <%= render 'layouts/sidebar' if logged_in? %>
     <main>
       <%= yield %>
     </main>

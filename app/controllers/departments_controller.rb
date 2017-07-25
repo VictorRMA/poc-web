@@ -1,4 +1,5 @@
 class DepartmentsController < ApplicationController
+  before_action :redirect_if_not_logged, only: [:index, :new, :create, :update, :show, :edit, :destroy]
   before_action :set_department, only: [:edit, :update, :show, :destroy]
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 

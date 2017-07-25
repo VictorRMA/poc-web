@@ -1,4 +1,5 @@
 class WorkTimesController < ApplicationController
+  before_action :redirect_if_not_logged, only: [:index, :new, :create, :show, :edit]
   before_action :set_work_time, only: [:show, :edit, :update]
 
   def index
