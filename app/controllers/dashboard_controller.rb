@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :redirect_if_not_logged, only: [:index]
+  before_action :require_authentication, only: [:index]
 
   def index
     redirect_to login_path if !logged_in?

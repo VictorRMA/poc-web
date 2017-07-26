@@ -1,5 +1,5 @@
 class CostCentersController < ApplicationController
-  before_action :redirect_if_not_logged, only: [:index, :new, :create, :show, :edit]
+  before_action :require_authentication, only: [:index, :new, :create, :show, :edit]
   before_action :require_admin, only: [:new, :create, :edit]
 
   def index
