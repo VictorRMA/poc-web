@@ -14,7 +14,6 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
-    @employee.department = Department.last          #TODO: Remove this
     if @employee.save
       session[:employee_id] = @employee.id
       flash[:success] = "Bem vindo #{@employee.first_name}"
